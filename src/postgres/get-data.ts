@@ -1,4 +1,4 @@
-import { getClient } from "./utils";
+import { getClient } from "../utils";
 
 async function getUsers() {
     const client = await getClient();
