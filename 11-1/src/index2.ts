@@ -15,3 +15,18 @@ UpdateUser({
     age: 23,
     email: "aakash@gmail.com"
 })
+
+
+// When you don't want to change the values of something
+type UserData = {
+    readonly name: string;
+    readonly age: Number;
+    readonly email: string
+}
+const userdata: UserData = {
+    name: "aakash",
+    age: 23,
+    email: "aakash@gmail.com"
+}
+// It will complain if you change the value now
+// userdata.name = "aman"
