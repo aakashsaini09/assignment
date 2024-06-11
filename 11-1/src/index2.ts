@@ -43,3 +43,44 @@ const userdataUlternative: Readonly<userinfo> = {
 }
 // It will complain if you change the value now
 // userdata.name = "aman"
+
+
+// Objects in TS
+
+// Method 1:
+type First = {
+    id: Number;
+    username: string;
+    age: Number
+}
+type Firsts = {
+    [key: string]: First
+}
+
+
+// Method 2:
+type Seconds = {
+    [key: string]: {
+        id: Number;
+        username: string;
+        age: Number
+    }
+}
+
+const userObj: Firsts = {
+    "aakash": {
+        id: 21,
+        age: 21,
+        username: "user1"
+    },
+    "aman": {
+        id: 2,
+        age: 20,
+        username: "user2"
+    },
+    "ankit": {
+        id: 3,
+        age: 18,
+        username: "user3"
+    },
+}
