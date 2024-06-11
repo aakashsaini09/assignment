@@ -17,3 +17,6 @@ app.put('/user', (req, res) =>{
         message: "user updated"
     })
 })
+
+const StringZodSchema = z.string();
+type StringType = z.infer<typeof StringZodSchema>; //String
