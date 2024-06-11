@@ -42,7 +42,12 @@ const user: Users = {
 }
 
 // Map function infro (it's a Js concept!)
-const users = new Map()
+type forMap = {
+    name: string;
+    age: Number;
+    email: string
+}
+const users = new Map<string, forMap>()
 // Set users using map function
 users.set("aakash", {name: "ak", age: 20, email: "ak@gmail.com"})
 users.set("aman", {name: "ak", age: 21, email: "ak@gmail.com"})
