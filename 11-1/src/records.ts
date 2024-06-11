@@ -40,3 +40,15 @@ const user: Users = {
     "aakash": 21,
     "ravi": 23,
 }
+
+// Map function infro (it's a Js concept!)
+const users = new Map()
+// Set users using map function
+users.set("aakash", {name: "ak", age: 20, email: "ak@gmail.com"})
+users.set("aman", {name: "ak", age: 21, email: "ak@gmail.com"})
+users.set("ankit", {name: "ak", age: 22, email: "ak@gmail.com"})
+// get users using map function
+const myuser = users.get("aakash")
+console.log(myuser)
+// delete users using map function
+users.delete("aakash")
