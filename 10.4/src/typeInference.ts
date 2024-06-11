@@ -6,9 +6,10 @@ const userProfileSchema = z.object({
     email: z.string().email({message: "invalid email formate"}),
     age: z.number().min(18, {message: "You must be at least 18"}).optional()
 })
+type FinalUserSchema = z.infer<typeof userProfileSchema>;
 app.put('/user', (req, res) =>{
     const {success} = userProfileSchema.safeParse(req.body);
-    const updateBody = req.body;
+    const updateBody: FinalUserSchema = req.body;
     if(!success){
         res.status(411).json({})
         return
@@ -17,6 +18,5 @@ app.put('/user', (req, res) =>{
         message: "user updated"
     })
 })
-
 const StringZodSchema = z.string();
 type StringType = z.infer<typeof StringZodSchema>; //String
