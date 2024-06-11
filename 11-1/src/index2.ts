@@ -18,12 +18,25 @@ UpdateUser({
 
 
 // When you don't want to change the values of something
+// Method 1:
 type UserData = {
     readonly name: string;
     readonly age: Number;
     readonly email: string
 }
 const userdata: UserData = {
+    name: "aakash",
+    age: 23,
+    email: "aakash@gmail.com"
+}
+
+// Method 2: 
+type userinfo = {
+    name: string;
+    age: Number;
+    email: "aakash@gmail.com"
+}
+const userdataUlternative: Readonly<userinfo> = {
     name: "aakash",
     age: 23,
     email: "aakash@gmail.com"
