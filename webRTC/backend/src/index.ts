@@ -9,6 +9,12 @@ wss.on('connection', function connection(ws){
     ws.on('error', console.error);
     ws.on('message', function message(data: any){
         const message = JSON.parse(data);
+        // TAsk to complete
+        // 1.) Create offer
+        // 2.) Create Ans
+        // 3.) add ice candidate
+        console.log(message)
     })
+
     ws.send('something!!');
 });
