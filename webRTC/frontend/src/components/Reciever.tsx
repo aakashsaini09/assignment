@@ -1,6 +1,7 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 const Reciver = () => {
+  const video = useRef(null)
   useEffect(() => {
     const socket = new WebSocket('ws://localhost:8080');
     socket.onopen = () => {
@@ -18,6 +19,9 @@ const Reciver = () => {
           if(event?.candidate){
               socket?.send(JSON.stringify({type: 'iceCandidate', candidate: event.candidate}))
           }
+      }
+      pc.ontrack = (event) => {
+        console.log(event)
       }
         const answer = await pc.createAnswer();
         await pc.setLocalDescription(answer);
