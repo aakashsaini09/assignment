@@ -1,6 +1,8 @@
 import './App.css'
-
+import {io} from 'socket.io-client'
+import { BACKENDURL } from './Links'
 function App() {
+  const socket = io(`${BACKENDURL}`)
   return (
     <>
       <p className="read-the-docs">
