@@ -16,10 +16,17 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-    console.log("User Connected");
-    console.log("Id: ", socket.id);
-})
 
+
+    console.log("User Connected: ", socket.id);
+    socket.on("message", (data) => {
+        console.log(data);
+        io.emit("receive-message", data)
+    })
+    socket.on('disconnect', () =>{
+        console.log("User Disconnected: ", socket.id)
+    } )
+})
 app.get('/', (req, res) => {
     res.send("Hello World")
 })
