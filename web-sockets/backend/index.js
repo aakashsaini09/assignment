@@ -21,7 +21,13 @@ io.on("connection", (socket) => {
     console.log("User Connected: ", socket.id);
     socket.on("message", (data) => {
         console.log(data);
+        // to send everyone
         io.emit("receive-message", data)
+        // to send everyone except sender
+        socket.broadcast.emit('receive-message', data)
+        // to send specific user/users only
+        io.to(data.room).emit("receive-message", data)
+
     })
     socket.on('disconnect', () =>{
         console.log("User Disconnected: ", socket.id)
