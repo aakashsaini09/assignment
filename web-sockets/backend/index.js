@@ -22,9 +22,9 @@ io.on("connection", (socket) => {
     socket.on("message", (data) => {
         console.log(data);
         // to send everyone
-        io.emit("receive-message", data)
+        // io.emit("receive-message", data)
         // to send everyone except sender
-        socket.broadcast.emit('receive-message', data)
+        // socket.broadcast.emit('receive-message', data)
         // to send specific user/users only
         io.to(data.room).emit("receive-message", data)
 
