@@ -1,10 +1,17 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const index_1 = require("../index");
-const globals_1 = require("@jest/globals");
-(0, globals_1.describe)('sum', () => {
-    (0, globals_1.it)('Should be able to add two positive numbers', () => {
-        const ans = (0, index_1.sum)(2, 3);
-        (0, globals_1.expect)(ans).toBe(5);
-    });
-});
+// import { sum, multiply } from "../index";
+// import { describe, expect, it } from '@jest/globals'
+// describe('sum', () => {
+//     it('Should be able to add two positive numbers', () => {
+//         const ans = sum(2, 3)
+//         expect(ans).toBe(5)
+//     })
+//     it('Should be able to add two negative numbers', () => {
+//         const ans = sum(-2, -3)
+//         expect(ans).toBe(-5)
+//     })
+//     it('Should be able to add two 0s', () => {
+//         const ans = sum(0, 0)
+//         expect(ans).toBe(0)
+//     })
+// })
