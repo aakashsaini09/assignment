@@ -1,18 +1,24 @@
 import Express = require("express");
-import { requestCount } from "./monitoring/requestCount";
+// import { requestCount } from "./monitoring/requestCount";
 import client from 'prom-client'
 const app = Express();
 
-
+const histogram = new client.Histogram({
+    name: "request_time",
+    help: "Time it took for a request to be handled",
+    buckets: [0.1, 1, 5, 10, 100, 1000],
+    labelNames: ["value"]
+})
 function middleware(req: any, res: any, next: any){
     const startTime = Date.now()
+    res.on("finish", () => {
+        const endTime = Date.now()
+        histogram.observe({}, endTime - startTime)
+    })
     next()
-    const endTime = Date.now()
-    console.log("Time it took: ", endTime - startTime, 'ms')
-
 }
 app.use(middleware)
-app.use(requestCount)
+// app.use(requestCount)
 app.get('/user', (req, res) => {
     const user = {
         name: "Aakash", 
